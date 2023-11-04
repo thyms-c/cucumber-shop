@@ -1,3 +1,5 @@
+// 6410406631 Thanyamas Chancharoen
+
 package ku.shop;
 
 import io.cucumber.java.en.Given;
@@ -31,6 +33,12 @@ public class BuyStepdefs {
     @Then("total should be {float}")
     public void total_should_be(double total) {
         assertEquals(total, order.getTotal());
+    }
+
+    @Then("product {string} stock should be {int}")
+    public void product_stock_should_be(String name, int expectedStock) {
+        Product prod = catalog.getProduct(name);
+        assertEquals(expectedStock, prod.getStock());
     }
 }
 
